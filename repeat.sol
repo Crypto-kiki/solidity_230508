@@ -193,3 +193,82 @@ contract Struct {
         return students;
     }
 }
+
+
+contract note {
+    struct Student {
+        string name;
+        string gender;
+        uint number;
+        uint birth;
+    }
+
+    Student A;
+    Student [] students;
+
+    struct party {
+        string party;
+        uint attendances;
+    }
+
+    function setA(string memory _a, string memory _b, uint _c, uint _d) public {
+        A = Student(_a, _b, _c, _d);
+    }
+
+    function getA() public view returns(Student memory) {
+        return A;
+    }
+
+    function pushStudent(string memory _name, string memory _gender, uint _number, uint _birth) public {
+
+    }
+}
+
+contract note2 {
+    uint[] a;
+    function pushA(uint _a) public {
+        a.push(_a);
+    }
+
+    string[] b;
+    function pushB(string memory _b) public {
+        b.push(_b);
+    }
+
+    struct Student {
+        string name;
+        string gender;
+        uint number;
+        uint birth;
+    }
+
+    Student[] students;
+
+    function pushStudents(string memory _name, string memory _gender, uint _number, uint _birth) public {
+        students.push(Student(_name, _gender, _number, _birth));
+    }
+
+    // function getStudents() public view returns(students memory) {
+    //     return students;
+    // }
+}
+
+contract note3 {
+    struct party {
+        string title;
+        string name;
+        uint date;
+    }
+
+    party A;
+    party[] parties;
+
+    function setA(string memory _title, string memory _name, uint _date) public {
+        A = party(_title, _name, _date);
+    }
+
+    function pushParties(string memory _title, string memory _name, uint _date) public {
+        parties.push(party(_title, _name, _date));
+    }
+}
+
