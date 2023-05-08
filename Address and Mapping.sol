@@ -68,3 +68,38 @@ contract Address {
     }
 
 }
+
+
+contract Mapping {
+    // 맵핑은 검색하는데 유용함.
+    // 숫자를 검색해서 숫자가 나온다 라는 뜻. key-value 쌍이 숫자 - 숫자로 연결되어 있는 mapping a
+    mapping(uint => uint) a;
+    // 숫자로 검색해서 string을 알고싶음
+    mapping(uint => string) b;
+    // string으로 검색해서 address를 알고싶음.
+    mapping(string => address) c;
+
+
+    // 이중 맵핑 (예시 : n반에 있는 아이들중 a는 점수가 몇이야?)
+    mapping(uint => mapping(string => uint)) score;
+
+
+    // 이름을 검색하면 그 아이의 키를 반환받는 contract를 구현하고 싶음.
+    mapping(string => uint) height;
+
+    // 정보 넣기
+    function setHeight(string memory _name, uint _h) public {
+        height[_name] = _h; // mapping 이름[key 값] - value 값
+    }
+
+    // 정보 받기
+    function getHeight(string memory _name) public view returns(uint) {
+        return height[_name];
+    }
+    // Height에 없는 _name을 getHeight에 넣으면 에러가 아닌 초기값으로 반환함.
+
+    
+    function deleteHeight(string memory _name) public {
+        delete height[_name];
+    }
+}
